@@ -56,6 +56,13 @@ class DataBaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         }
     }
 
+    //Delete data
+    fun deleteData(id: String): Int?{
+        val db =this.writableDatabase
+        val i = db.delete(TABLE_NAME, "ID =?", arrayOf(id))
+        return i
+    }
+
     companion object {
         val DATABASE_NAME = "Student.db"
         val TABLE_NAME = "Student_table"
