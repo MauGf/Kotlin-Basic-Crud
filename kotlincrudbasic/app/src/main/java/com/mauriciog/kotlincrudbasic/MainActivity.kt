@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     internal lateinit var  edit3 : EditText
     internal lateinit var  edit4 : EditText
     internal lateinit var  btnUpdate : Button
+    internal lateinit var  btnDelete : Button
     internal lateinit var  btn   : Button
     internal lateinit var  btn2  : Button
     internal lateinit var  txt   : TextView
@@ -32,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         edit3 = findViewById<View>(R.id.id_mobile) as EditText
         edit4 = findViewById<View>(R.id.id_txt)    as EditText
         btnUpdate   = findViewById<View>(R.id.id_update) as Button
+        btnDelete   = findViewById<View>(R.id.id_delete) as Button
         btn   = findViewById<View>(R.id.insert)    as Button
         btn2  = findViewById<View>(R.id.id_read)   as Button
         txt   = findViewById<View>(R.id.txt)       as TextView
@@ -41,6 +43,7 @@ class MainActivity : AppCompatActivity() {
         }
         btn.setOnClickListener{(ClicKMe())}
         btnUpdate.setOnClickListener { UpdateMe() }
+        btnDelete.setOnClickListener { DeleteMe() }
     }
 
     // Leer Datos
@@ -88,5 +91,13 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Data Updated Successfully", Toast.LENGTH_SHORT).show()
         else
             Toast.makeText(this, "Data updation Failed", Toast.LENGTH_SHORT).show()
+    }
+
+    //Delete Data
+    private fun DeleteMe(){
+        val id     = edit4.text.toString()
+        val result = myDb.deleteData(id)
+        Toast.makeText(this, "Row has been  deleted Successfully", Toast.LENGTH_SHORT).show()
+
     }
 }

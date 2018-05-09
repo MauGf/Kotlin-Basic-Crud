@@ -5,4 +5,7 @@
     <string name="mobile">Mobile</string>
     <string name="insert">Insert</string>
     <string name="read">Read</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+    <string name="id">Id</string>
 </resources>
